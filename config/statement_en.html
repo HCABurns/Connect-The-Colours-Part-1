@@ -1,0 +1,175 @@
+<div id="statement_back" class="statement_back" style="display:none"></div>
+<div class="statement-body">
+  <!-- GOAL -->
+  <div class="statement-section statement-goal">
+    <h1>
+      <span class="icon icon-goal">&nbsp;</span>
+      <span>The Goal</span>
+    </h1>
+    <div class="statement-goal-content">
+      Connect the Colours is a logical puzzle that involves connecting pairs of matching colours in a closed grid.
+      The objective is to connect <b>ALL</b> pairs of identical colours with non-overlapping paths, using <b>EVERY</b> tile.
+    </div>
+  </div>
+  <!-- RULES -->
+  <div class="statement-section statement-rules">
+    <h1>
+      <span class="icon icon-rules">&nbsp;</span>
+      <span>Rules</span>
+    </h1>
+    <div>
+      <div class="statement-rules-content">
+        <ul>
+          <li>Paths must consist of one or more horizontal and or vertical segments to connect adjacent tiles.</li>
+          <li>Each colour must be connected to the other instance of the same colour using a continuous path.</li>
+          <li>A single tile can only be used in <b>ONE</b> path and any two paths <b>CANNOT</b> overlap or cross each other.</li>
+          <li>Paths must remain entirely within the grid boundaries.</li>
+          <li>Every tile must be used in a path, so that there are no empty tiles remaining.</li>
+        </ul>
+      </div>
+      The top-left corner is positioned at coordinates (<const>0</const>,<const>0</const>) and the bottom-right is positioned at coordinates (<var>w</var><const>-1</const>,<var>h</var><const>-1</const>).
+    </div>
+  </div>
+
+  <!-- VICTORY CONDITIONS -->
+  <div class="statement-victory-conditions">
+    <div class="icon victory"></div>
+    <div class="blk">
+      <div class="title">Victory Conditions</div>
+      <div class="text">
+        <ul style="padding-bottom: 0;">
+          <li>
+            All colours are connected to their respective identical colour, in a continuous path and without overlaps or crossovers.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loss CONDITIONS -->
+  <div class="statement-lose-conditions">
+    <div class="icon lose"></div>
+    <div class="blk">
+      <div class="title">Loss Conditions</div>
+      <div class="text">
+        <ul style="padding-bottom: 0;">
+          <li>Response time exceeds the time limit.</li>
+          <li>The output is not properly formatted.</li>
+          <li>Attempted to create an invalid path.</li>
+          <li>Number of turns exceeds the turn limit.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="statement-section statement-rules" style="padding-bottom:10px">
+  <h3 style="font-size:16px;font-weight:700;padding-top:20px;color:#838891;">
+  🐞 Debug Mode</h3>
+  
+  <p class="statement-rules-content" style="padding-top:10px"> Enable the debug mode using the settings icon <img style="opacity:.8;background:#20252a;" height="18" src="https://www.codingame.com/servlet/fileservlet?id=3463235186409" width="18" alt="setting icon"> to provide extra information when hovering over tiles in the viewer.</p>
+  </div> 
+
+  <!-- PROTOCOL -->
+  <div class="statement-section statement-protocol">
+    <h1>
+      <span class="icon icon-protocol">&nbsp;</span>
+      <span>Game Input</span>
+    </h1>
+    <!-- Protocol block -->
+    <div class="blk">
+      <div class="title">Input</div>
+      <div class="text">
+        <p><span class="statement-lineno">Line 1: </span>Space separated integers <var>h</var> <var>w</var> representing the height and width of the puzzle.</p>
+        <p><span class="statement-lineno">Next <var>h</var> Lines: </span> String of length <var>w</var> representing a row of the puzzle.</p>
+        <p> <em>Integers are used to define colours. Matching integers represent the same colour.</em> </p>
+        <p> <em>The full stop character (<const>.</const>) indicates an empty tile that can be used as part of a path.</em> </p>
+      </div>
+    </div>
+
+    <!-- Protocol block -->
+    <div class="blk">
+      <div class="title">Output per turn</div>
+      <div class="text">
+        <span class="statement-lineno">A single line</span> containing integers in the form <var>x1</var> <var>y1</var> <var>x2</var> <var>y2</var> <var>colour</var>.
+        <ul>
+          <li> <var>x1</var> - X-Coordinate of the first tile.
+          <li> <var>y1</var> - Y-Coordinate of the first tile.
+          <li> <var>x2</var> - X-Coordinate of the second tile.
+          <li> <var>y2</var> - Y-Coordinate of the second tile.
+          <li> <var>colour</var> - Colour identifier.
+        </ul>
+        This will create a section of a path from the first tile, to the second tile and will be in the colour denoted by the colour identifier.<br>
+        Tiles <b>MUST</b> be in the same plane either horizontally or vertically (<var>x1</var> = <var>x2</var> <b>OR</b> <var>y1</var> = <var>y2</var>).
+      
+        <br>
+      </div>
+    </div>
+
+    <!-- Example -->
+    <div class="blk">
+    <h1>
+      <span class="icon icon-example">&nbsp;</span>
+      <span>Example</span>
+    </h1>
+    
+    <!-- Initial input Example -->
+    <div class="statement-inout">
+      <div class="statement-inout-in" style = "max-width:25%">
+        <div class="title" style="padding: 0; ">Initialization input</div>
+          <tt>
+            3 3 <em>(h,w)</em> <br>
+            1.2 <em>(row)</em> <br>
+            ... <em>(row)</em> <br>
+            .12 <em>(row)</em>
+          </tt>
+      </div>
+      
+    <div class="statement-inout-in" style="text-align: center; max-width:75%">Grid with 3 rows and 3 columns. Integers in the <em>rows</em> represent the two tiles of a specific colour that must be connected with a single continuous path.<br><br><img height = "150" src="https://i.imgur.com/JSni02Z.png" alt = "example image 1"></div>
+    
+  </div>
+
+  <!-- Output turn 1 Example -->
+  <div class="statement-inout">
+    <div class="statement-inout-out" style = "max-width:25%">
+      <div class="title" style="padding: 0;">Output for turn 1</div>
+          <tt>0 0 0 2 1</tt>
+    </div>
+    <div class="statement-inout-out" style="text-align: center; max-width:75%">Create a path from coordinates (<const>0</const>,<const>0</const>) to the coordinates (<const>0</const>,<const>2</const>) using the colour represented by the colour identifier <const>1</const>.<br><br><img height = "150" src="https://i.imgur.com/xt8AMUx.png" alt = "example image 2"></div>
+  </div>
+
+  <!-- Output turn 2 Example -->
+  <div class="statement-inout" >
+    <div class="statement-inout-out" style = "max-width:25%">
+      <div class="title" style="padding: 0;">Output for turn 2</div>
+          <tt>2 0 1 0 2</tt>
+    </div>
+    <div class="statement-inout-in" style="text-align: center; max-width:75%">Create a path from coordinates (<const>2</const>,<const>0</const>) to the coordinates (<const>1</const>,<const>0</const>) using the colour represented by the colour identifier <const>2</const>.<br><br><img height = "150" src="https://i.imgur.com/1sUClql.png" alt = "example image 3"></div>
+  </div>
+    
+    <!-- Output remaining turns Example -->
+  <div class="statement-inout" >
+    <div class="statement-inout-out" style = "max-width:25%">
+      <div class="title" style="padding: 0;">Outputs for remaining turns</div>
+        <tt>0 2 1 2 1<br>
+        1 0 1 1 2 <br>
+        1 1 2 1 2 <br>
+        2 1 2 2 2 <br></tt>
+    </div>
+    <div class="statement-inout-in" style="text-align: center; max-width:75%">Create paths for the remaining paired tiles, ensuring that each color is connected by a single continuous path and that every tile is used.<br><br><img height = "150" src="https://i.imgur.com/c7AhN37.png" alt = "example image 4"></div>
+  </div>
+  
+    <!-- Protocol block -->
+    <div class="blk">
+      <div class="title">Constraints</div>
+        <div class="text"> 1 ≤ <var>h</var>, <var>w</var> ≤ 20<br>
+          Allotted response time for first output is <const>2</const> seconds.<br>
+          Allotted response time for subsequent outputs is <const>50</const> ms.<br>
+          Turn limit is <const>60</const> turns.<br>
+          A colour identifier will appear exactly twice within a puzzle.<br>
+          Maximum number of distinct colours in a puzzle is <const>9</const>.
+        </div>
+    </div>
+  </div>
+</div>
+</div>
