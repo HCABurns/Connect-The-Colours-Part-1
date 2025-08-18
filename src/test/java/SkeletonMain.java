@@ -12,9 +12,10 @@ public class SkeletonMain {
 
         // Sets a test case
         //gameRunner.setTestCase("test323.json"); // Intro (17 for agent1)
-        gameRunner.setTestCase("test11.json"); // medium 1
+        //gameRunner.setTestCase("test11.json"); // medium 1
         //gameRunner.setTestCase("test332.json"); // sparse 1
         //gameRunner.setTestCase("test329.json"); // single
+        gameRunner.setTestCase("test1.json"); // single
 
         // Starts the game.
         gameRunner.start();

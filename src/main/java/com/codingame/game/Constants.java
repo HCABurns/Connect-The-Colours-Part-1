@@ -37,6 +37,9 @@ public class Constants {
         map.put('7', "tile7Error.png");
         map.put('8', "tile8Error.png");
         map.put('9', "tile9Error.png");
+        map.put('X', "tileError.png");
+        map.put('V', "tileVerticalError.png");
+        map.put('H', "tileHorizontalError.png");
         ERROR_TILE_MAPPER = Collections.unmodifiableMap(map);
     }
 
@@ -54,6 +57,9 @@ public class Constants {
         map.put('7', "tile7Complete.png");
         map.put('8', "tile8Complete.png");
         map.put('9', "tile9Complete.png");
+        map.put('X', "blocker.png");
+        map.put('V', "tileComplete.png");
+        map.put('H', "tileComplete.png");
         SUCCESS_TILE_MAPPER = Collections.unmodifiableMap(map);
     }
 
@@ -70,6 +76,9 @@ public class Constants {
         map.put('7', "start7.png");
         map.put('8', "start8.png");
         map.put('9', "start9.png");
+        map.put('X', "blocker.png");
+        map.put('V', "tileVertical.png");
+        map.put('H', "tileHorizontal.png");
         START_TILE_MAPPER = Collections.unmodifiableMap(map);
     }
 

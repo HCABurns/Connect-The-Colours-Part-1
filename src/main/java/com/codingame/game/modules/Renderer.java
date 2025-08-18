@@ -128,8 +128,13 @@ public class Renderer implements Module {
         addTile(debug_tile.getId(), tileName, number, allTiles);
         if (number == '.') {
             tooltipModule.setTooltipText(debug_tile, ("x: " + j + "\ny: " + i + "\nconnections: 0" + "\ncolour: none"));
-        }
-        else{
+        } else if (number == 'X') {
+            tooltipModule.setTooltipText(debug_tile, ("BLOCKER TILE\n"+"x: " + j + "\ny: " + i));
+        } else if (number == 'H') {
+            tooltipModule.setTooltipText(debug_tile, ("HORIZONTAL ONLY TILE\n"+"x: " + j + "\ny: " + i + "\nconnections: 0" + "\ncolour: none"));
+        } else if (number == 'V') {
+            tooltipModule.setTooltipText(debug_tile, ("VERTICAL ONLY TILE\n"+"x: " + j + "\ny: " + i + "\nconnections: 0" + "\ncolour: none"));
+        } else{
             tooltipModule.setTooltipText(debug_tile, ("STARTING TILE\n"+"x: " + j + "\ny: " + i + "\nconnections: 0" + "\ncolour: " + number));
         }
     }
@@ -172,8 +177,8 @@ public class Renderer implements Module {
 
                 // Update the debug tooltip.
                 debug_group.add(debug_sprite);
-                updateTooltip((y1 + (i * vertical_direction)) * this.w + x1, number);
-                updateTooltip((y1 + ((i + 1) * vertical_direction)) * this.w + x1, number);
+                updateTooltip((y1 + (i * vertical_direction)) * this.w + x1, number, Math.abs(y1 - y2), 0);
+                updateTooltip((y1 + ((i + 1) * vertical_direction)) * this.w + x1, number, Math.abs(y1 - y2), 0);
             }
             else if (horizontal_direction != 0 && i != connectors_to_build) {
                 int x = (x1 + i * horizontal_direction) * (Constants.CELL_SIZE) + Constants.CONNECTOR_OFFSET;
@@ -186,8 +191,8 @@ public class Renderer implements Module {
                 // Update debug and tooltip.
                 debug_group.add(debug_sprite);
 
-                updateTooltip(y1 * this.w + (x1 + i * horizontal_direction), number);
-                updateTooltip(y1 * this.w + (x1 + (1 + i) * horizontal_direction), number);
+                updateTooltip(y1 * this.w + (x1 + i * horizontal_direction), number, 0 , Math.abs(x1 - x2));
+                updateTooltip(y1 * this.w + (x1 + (1 + i) * horizontal_direction), number, 0 , Math.abs(x1 - x2));
             }
             // Commit the connector at the START of the frame.
             graphicEntityModule.commitEntityState(0,sprite);
@@ -203,12 +208,29 @@ public class Renderer implements Module {
      * @param pos - Position in the 1D array.
      * @param colour - Colour to be updated.
      */
-    public void updateTooltip(int pos , char colour){
+    public void updateTooltip(int pos , char colour, int y_difference, int x_difference){
         Sprite sprite = debug_tiles.get(pos);
         String[] arr = tooltipModule.getTooltipText(sprite).split("\n");
+        int connections_position = 2;
+
+        // Update if blocker
+        if (arr[0].equals("BLOCKER TILE")){
+            String[] newArr = Arrays.copyOf(arr, arr.length + 2);
+            newArr[newArr.length - 2] = "connections: 1";
+            newArr[newArr.length - 1] = "attempted colour: " + colour;
+            tooltipModule.setTooltipText(sprite, String.join("\n", newArr));
+            return;
+        }
+
+        if (arr[0].equals("HORIZONTAL ONLY TILE") && y_difference > 0){
+            arr[0] = "HORIZONTAL ONLY TILE - INVALID DIRECTION";
+        }
+        if (arr[0].equals("VERTICAL ONLY TILE") && x_difference > 0){
+            arr[0] = "VERTICAL ONLY TILE - INVALID DIRECTION";
+        }
 
         String[] colours = arr[arr.length-1].split(" ");
-        int connections_position = 2;
+
         // Add a new tooltip with the attempted colour change.
         if (!Objects.equals(colours[1], "none") && !Objects.equals(colours[1], String.valueOf(colour))){
             if (!Objects.equals(arr[arr.length-1].split(" ")[0], "attempted")) {

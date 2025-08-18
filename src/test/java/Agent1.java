@@ -14,7 +14,7 @@ public class Agent1 {
     static boolean foundSolution = false;
 
     public static void main(String[] args) {
-        InputStream inStream = ClassLoader.getSystemResourceAsStream("test9data.txt");
+        InputStream inStream = ClassLoader.getSystemResourceAsStream("test1data.txt");
         if (inStream == null){return;}
         long startTime = 0;
         Map<Character,Coordinate> start_nodes = new HashMap<>();
@@ -33,7 +33,7 @@ public class Agent1 {
                 for (int j = 0; j < w; j++) {
                     char c = row.charAt(j);
                     grid[idx] = c;
-                    if (c != '.') {
+                    if (c != '.' && c!='X') {
                         numbers.computeIfAbsent(c, k -> new ArrayList<>()).add(idx);
                         if (start_nodes.containsKey(c)){
                             end_nodes.put(c , new Coordinate(i,j,c));

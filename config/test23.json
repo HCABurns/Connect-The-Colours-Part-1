@@ -1,8 +1,0 @@
-{
-  "title": {
-    "2": "Rectangular 2"
-  },
-  "testIn": "4 10\n1.2.3....4\n....4.5...\n.1......65\n...23....6",
-  "isTest": "true",
-  "isValidator": "false"
-}
