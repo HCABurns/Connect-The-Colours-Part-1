@@ -21,6 +21,7 @@ public class Renderer implements Module {
     private final ArrayList<Integer> tiles = new ArrayList<>();
     private final ArrayList<Sprite> debug_tiles = new ArrayList<>();
     private final TooltipModule tooltipModule;
+    private final Set<Coordinate> checkpoints = new HashSet<>();
     private int h;
     private int w;
 
@@ -108,10 +109,14 @@ public class Renderer implements Module {
      * @param i - Vertical position.
      * @param j - Horizontal position.
      */
-    public void drawTile(char number, int i, int j){
+    public void drawTile(char number, int i, int j, char checkpointValue){
         String tileName = Constants.TILE_SPRITE;
         if (Constants.START_TILE_MAPPER.containsKey(number)){
             tileName = Constants.START_TILE_MAPPER.get(number);
+        }
+        if (checkpointValue!='.'){
+            checkpoints.add(new Coordinate(i,j));
+            tileName = Constants.CHECKPOINT_TILE_MAPPER.get(checkpointValue);
         }
         int z_TILES = 5;
 
@@ -126,7 +131,10 @@ public class Renderer implements Module {
         debug_group.add(debug_tile);
         debug_tiles.add(debug_tile);
         addTile(debug_tile.getId(), tileName, number, allTiles);
-        if (number == '.') {
+        if (checkpointValue != '.') {
+            tooltipModule.setTooltipText(debug_tile, "COLOUR " + checkpointValue + " CHECKPOINT TILE\nx: " + j + "\ny: " + i + "\nconnections: 0" + "\ncolour: none");
+        }
+        else if (number == '.') {
             tooltipModule.setTooltipText(debug_tile, ("x: " + j + "\ny: " + i + "\nconnections: 0" + "\ncolour: none"));
         } else if (number == 'X') {
             tooltipModule.setTooltipText(debug_tile, ("BLOCKER TILE\n"+"x: " + j + "\ny: " + i));

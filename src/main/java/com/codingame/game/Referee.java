@@ -49,13 +49,23 @@ public class Referee extends AbstractReferee {
             gameManager.getPlayer().sendInputLine(gameManager.getTestCaseInput().get(i));
         }
 
+        // Set the checkpoints.
+        int checkpoint_counter = Integer.parseInt(gameManager.getTestCaseInput().get(board.getHeight()+1));
+        System.out.println(checkpoint_counter);
+        for (int i = 2; i < checkpoint_counter+2; i++){
+            Integer[] checkpoint_pos = Arrays.stream(gameManager.getTestCaseInput().get(board.getHeight()+i).split(" "))
+                    .map(Integer::valueOf)
+                    .toArray(Integer[]::new);
+            board.setCheckpoint(checkpoint_pos[0], checkpoint_pos[1],  String.valueOf(checkpoint_pos[2]).charAt(0));
+        }
+
         // Send the puzzle to the Board to be created.
         for (int i = 1; i < board.getHeight()+1; i++) {
             char[] row = gameManager.getTestCaseInput().get(i).toCharArray();
             board.drawPuzzle(i - 1, row);
             debug_board.drawPuzzle(i-1, row);
             for (int j = 0; j < row.length; j++){
-                renderer.drawTile(row[j], i-1, j);
+                renderer.drawTile(row[j], i-1, j, board.getCheckpointColour(j,i-1));
             }
         }
 

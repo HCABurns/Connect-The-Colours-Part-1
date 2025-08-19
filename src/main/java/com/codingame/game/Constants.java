@@ -43,6 +43,15 @@ public class Constants {
         ERROR_TILE_MAPPER = Collections.unmodifiableMap(map);
     }
 
+    // Checkpoint tile mapper.
+    public static final Map<Character, String> CHECKPOINT_TILE_MAPPER;
+    static {
+        Map<Character, String> map = new HashMap<>();
+        map.put('1', "tile1Checkpoint.png");
+        CHECKPOINT_TILE_MAPPER = Collections.unmodifiableMap(map);
+    }
+
+
     // Successful tiles sprites
     public static final Map<Character, String> SUCCESS_TILE_MAPPER;
     static {

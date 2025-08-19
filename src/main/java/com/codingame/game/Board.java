@@ -1,5 +1,7 @@
 package com.codingame.game;
 
+import org.checkerframework.checker.units.qual.C;
+
 import java.util.*;
 
 /**
@@ -16,6 +18,7 @@ public class Board {
     private final Set<Integer> colourIdentifiers = new HashSet<>();
     private final Map<Coordinate, Set<Coordinate>> connections = new HashMap<>();
     private final Map<Character,Set<Coordinate>> paths = new HashMap<>();
+    private final Map<Coordinate,Character> checkpoints = new HashMap<>();
     private final Set<Coordinate> verticalOnly = new HashSet<>();
     private final Set<Coordinate> horizontalOnly = new HashSet<>();
     private int total_connected = 0;
@@ -245,6 +248,23 @@ public class Board {
             return false;
         }
     }
+
+
+    public void setCheckpoint(int x, int y, char colour){
+        checkpoints.put(new Coordinate(y,x), colour);
+    }
+
+    public boolean isCheckpoint(int x, int y){
+        return checkpoints.containsKey(new Coordinate(y,x));
+    }
+
+    public char getCheckpointColour(int x, int y){
+        if (isCheckpoint(x,y)){
+            return checkpoints.get(new Coordinate(y,x));
+        }
+        return '.';
+    }
+
 
     /**
      * Check if the game is ended or not.
