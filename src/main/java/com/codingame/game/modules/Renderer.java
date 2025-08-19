@@ -21,7 +21,7 @@ public class Renderer implements Module {
     private final ArrayList<Integer> tiles = new ArrayList<>();
     private final ArrayList<Sprite> debug_tiles = new ArrayList<>();
     private final TooltipModule tooltipModule;
-    private final Set<Coordinate> checkpoints = new HashSet<>();
+    private final Map<Coordinate, Character> checkpoints = new HashMap<Coordinate, Character>();
     private int h;
     private int w;
 
@@ -84,10 +84,15 @@ public class Renderer implements Module {
     public void setErrorTiles(Board board){
         for (Coordinate coord : board.getErrorTiles()){
             if (coord.getY() * board.getWidth() + coord.getX() < board.getWidth() * board.getHeight()) {
-                addErrorTile(tiles.get(coord.getY() * board.getWidth() + coord.getX()), Constants.ERROR_TILE_MAPPER.get(board.getStartGrid().get(coord.getY())[coord.getX()]));
-
-                addErrorTile(debug_tiles.get(coord.getY() * board.getWidth() + coord.getX()).getId(), Constants.ERROR_TILE_MAPPER.get(board.getStartGrid().get(coord.getY())[coord.getX()]));
-
+                if (checkpoints.containsKey(coord)){
+                    System.out.println("YER");
+                    addErrorTile(tiles.get(coord.getY() * board.getWidth() + coord.getX()), Constants.ERROR_CHECKPOINT_TILE_MAPPER.get(checkpoints.get(coord)));
+                    addErrorTile(debug_tiles.get(coord.getY() * board.getWidth() + coord.getX()).getId(), Constants.ERROR_CHECKPOINT_TILE_MAPPER.get(checkpoints.get(coord)));
+                }
+                else {
+                    addErrorTile(tiles.get(coord.getY() * board.getWidth() + coord.getX()), Constants.ERROR_TILE_MAPPER.get(board.getStartGrid().get(coord.getY())[coord.getX()]));
+                    addErrorTile(debug_tiles.get(coord.getY() * board.getWidth() + coord.getX()).getId(), Constants.ERROR_TILE_MAPPER.get(board.getStartGrid().get(coord.getY())[coord.getX()]));
+                }
             }
         }
     }
@@ -115,7 +120,7 @@ public class Renderer implements Module {
             tileName = Constants.START_TILE_MAPPER.get(number);
         }
         if (checkpointValue!='.'){
-            checkpoints.add(new Coordinate(i,j));
+            checkpoints.put(new Coordinate(i,j), checkpointValue);
             tileName = Constants.CHECKPOINT_TILE_MAPPER.get(checkpointValue);
         }
         int z_TILES = 5;
@@ -132,6 +137,7 @@ public class Renderer implements Module {
         debug_tiles.add(debug_tile);
         addTile(debug_tile.getId(), tileName, number, allTiles);
         if (checkpointValue != '.') {
+            checkpoints.put(new Coordinate(i,j), checkpointValue);
             tooltipModule.setTooltipText(debug_tile, "COLOUR " + checkpointValue + " CHECKPOINT TILE\nx: " + j + "\ny: " + i + "\nconnections: 0" + "\ncolour: none");
         }
         else if (number == '.') {

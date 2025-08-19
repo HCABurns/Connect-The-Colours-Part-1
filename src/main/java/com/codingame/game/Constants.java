@@ -47,8 +47,23 @@ public class Constants {
     public static final Map<Character, String> CHECKPOINT_TILE_MAPPER;
     static {
         Map<Character, String> map = new HashMap<>();
-        map.put('1', "tile1Checkpoint.png");
+        for (int i = 1; i < 10; i++){
+            char c = String.valueOf(i).charAt(0);
+            map.put(c, "tile"+c+"Checkpoint.png");
+        }
+        //map.put('1', "tile1Checkpoint.png");
         CHECKPOINT_TILE_MAPPER = Collections.unmodifiableMap(map);
+    }
+
+    // Checkpoint error mapper.
+    public static final Map<Character, String> ERROR_CHECKPOINT_TILE_MAPPER;
+    static {
+        Map<Character, String> map = new HashMap<>();
+        for (int i = 1; i < 10; i++){
+            char c = String.valueOf(i).charAt(0);
+            map.put(c, "tile"+c+"CheckpointError.png");
+        }
+        ERROR_CHECKPOINT_TILE_MAPPER = Collections.unmodifiableMap(map);
     }
 
 
