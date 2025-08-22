@@ -31,7 +31,7 @@ public class Referee extends AbstractReferee {
         // Set frame duration.
         gameManager.setFrameDuration(600);
         gameManager.setFirstTurnMaxTime(2000);
-        gameManager.setMaxTurns(65);
+        gameManager.setMaxTurns(100);
         gameManager.setTurnMaxTime(50);
 
         // Get inputs from the case and send to user.
@@ -53,10 +53,10 @@ public class Referee extends AbstractReferee {
         int checkpoint_counter = Integer.parseInt(gameManager.getTestCaseInput().get(board.getHeight()+1));
         System.out.println(checkpoint_counter);
         for (int i = 2; i < checkpoint_counter+2; i++){
-            Integer[] checkpoint_pos = Arrays.stream(gameManager.getTestCaseInput().get(board.getHeight()+i).split(" "))
-                    .map(Integer::valueOf)
-                    .toArray(Integer[]::new);
-            board.setCheckpoint(checkpoint_pos[0], checkpoint_pos[1],  String.valueOf(checkpoint_pos[2]).charAt(0));
+            String[] checkpoint_pos = Arrays.stream(gameManager.getTestCaseInput().get(board.getHeight()+i).split(" "))
+                    .map(String::valueOf)
+                    .toArray(String[]::new);
+            board.setCheckpoint(Integer.parseInt(checkpoint_pos[0]), Integer.parseInt(checkpoint_pos[1]),  checkpoint_pos[2].charAt(0));
         }
 
         // Send the puzzle to the Board to be created.
@@ -100,7 +100,7 @@ public class Referee extends AbstractReferee {
                 int x1 = out[1];
                 int y2 = out[2];
                 int x2 = out[3];
-                char number = (char) (out[4] + 48);
+                char number = (char) out[4];
 
                 // Draw the connection(s) that the user has provided.
                 board.addConnections(y1, x1, y2, x2, number);
@@ -164,7 +164,15 @@ public class Referee extends AbstractReferee {
             int y1 = Integer.parseInt(arr[1]);
             int x2 = Integer.parseInt(arr[2]);
             int y2 = Integer.parseInt(arr[3]);
-            int number = Integer.parseInt(arr[4]);
+            char number_as_char = String.valueOf(arr[4]).charAt(0);
+            int number;
+            if ("0123456789".contains(String.valueOf(number_as_char))){
+                number = (48 + Integer.parseInt(String.valueOf(number_as_char)));
+            }else{
+                number = 97 + (int)(number_as_char) - (int)('a');
+            }
+
+            System.out.println("Char is: " + number + " Char is also: " + number_as_char);
             // Set y1,x1 to be the left-most coordinate.
             if ((y1+x1) < (y2+x2)) {
                 values[0] = y1;values[1] = x1;values[2] = y2;values[3] = x2;
@@ -174,13 +182,13 @@ public class Referee extends AbstractReferee {
             values[4] = number;
 
             // Complete general checks on the input. (Bounds and Valid colour)
-            generalChecks(values[0], values[1], values[2],values[3], number);
+            generalChecks(values[0], values[1], values[2],values[3], number_as_char);
 
             // Valid input provided so render regardless if the moves are valid or not - Better for debugging.
-            renderer.drawConnector(values[0], values[1], values[2], values[3], (char)(48+number), board.getConnections());
+            renderer.drawConnector(values[0], values[1], values[2], values[3], number_as_char, board.getConnections());
 
             // Check if the move is actually valid given the rules.
-            if (board.isValid(values[0], values[1], values[2],values[3], number)){
+            if (board.isValid(values[0], values[1], values[2],values[3], number_as_char)){
                 return values;
             }
             return null;
@@ -208,7 +216,7 @@ public class Referee extends AbstractReferee {
      * @param number - Colour identifier number.
      * @throws Exception - Throws exception if not in the correct format.
      */
-    public void generalChecks(int y1, int x1, int y2, int x2, int number) throws Exception{
+    public void generalChecks(int y1, int x1, int y2, int x2, char number) throws Exception{
         // NOTE: These checks are general checks for correctness - Additional checks in Board.isValid().
         // Check for valid number.
         if (!board.getColourIdentifiers().contains(number)){

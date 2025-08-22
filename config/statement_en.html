@@ -20,7 +20,7 @@
     <div>
       <div class="statement-rules-content">
         <ul>
-          <li>Paths must consist of one or more horizontal and or vertical segments to connect adjacent tiles.</li>
+          <li>Paths must consist of one or more horizontal and/or vertical segments to connect adjacent tiles.</li>
           <li>Each colour must be connected to the other instance of the same colour using a continuous path.</li>
           <li>A single tile can only be used in <b>ONE</b> path and any two paths <b>CANNOT</b> overlap or cross each other.</li>
           <li>Paths must remain entirely within the grid boundaries.</li>
@@ -83,14 +83,15 @@
       <div class="text">
         <p><span class="statement-lineno">Line 1: </span>Space separated integers <var>h</var> <var>w</var> representing the height and width of the puzzle.</p>
         <p><span class="statement-lineno">Next <var>h</var> Lines: </span> String of length <var>w</var> representing a row of the puzzle.</p>
-        <p><span class="statement-lineno">Next Line: </span> Integer <var>k</var> representing the number of checkpoints in the puzzle.</p>
-        <p><span class="statement-lineno">Next <var>k</var> Lines: </span> Space separated string (<var>x</var> <var>y</var> <var>c</var>) representing the coordinates (<var>x</var> <var>y</var>) and colour (<var>c</var>) of a checkpoint.</p>
-        
-        <p> <em>Integers are used to define colours. Matching integers represent the same colour.</em> </p>
+
+      <p> <em>Integers (<const>0</const>-<const>9</const>) and/or characters (<const>a</const>-<const>e</const>) are used to define colours. Matching identifiers represent the same colour.</em> </p>
         <p> <em>The full stop character (<const>.</const>) indicates an empty tile that can be used as part of a path.</em> </p>
       </div>
       <p> <em>Directional tiles (<const>V</const> and <const>H</const>) can only be connected in the direction specified. (<const>V</const> = vertically only, <const>H</const> = horizontally only)</em><p>
       <p><em>Blockers (<const>X</const>) are tiles that CANNOT be used in any path.</em></p>
+
+        <p><span class="statement-lineno">Next Line: </span> Integer <var>k</var> representing the number of checkpoints in the puzzle.</p>
+        <p><span class="statement-lineno">Next <var>k</var> Lines: </span> Space separated information (<var>x</var> <var>y</var> <var>c</var>) representing the coordinates (<var>x</var> , <var>y</var>) and colour (<var>c</var>) of a checkpoint. Where <var>x</var> and <var>y</var> are integers and <var>c</var> is a string.</p>        
       <p><em>Checkpoints are tiles that MUST be used as part of the path connecting the colour (<var>c</var>).</em></p>
     </div>
 
@@ -165,18 +166,24 @@
         ...<br>
         ...<br></tt>
     </div>
-    <div class="statement-inout-in" style="text-align: center; max-width:75%">Create paths for the remaining paired tiles, ensuring that each color is connected by a single continuous path and that every tile is used.<br><br><img height = "150" src="" alt = "example image 4"></div>
+    <div class="statement-inout-in" style="text-align: center; max-width:75%">Create paths for the remaining paired tiles, ensuring that each colour is connected by a single continuous path and that every tile is used.<br><br><img height = "150" src="" alt = "example image 4"></div>
   </div>
   
     <!-- Protocol block -->
     <div class="blk">
       <div class="title">Constraints</div>
         <div class="text"> 1 ≤ <var>h</var>, <var>w</var> ≤ ?<br>
+          0 ≤ <var>k</var> ≤ ?<br>
+          0 ≤ <var>x</var> < <var>w</var> <br>
+          0 ≤ <var>y</var> < <var>h</var> <br>
+          <var>c</var> ∈ {<const>0</const>-<const>9</const>} ∪ {<const>a</const>-<const>e</const>} <br>
           Allotted response time for first output is <const>?</const> seconds.<br>
           Allotted response time for subsequent outputs is <const>50</const> ms.<br>
           Turn limit is <const>?</const> turns.<br>
           A colour identifier will appear exactly twice within a puzzle.<br>
-          Maximum number of distinct colours in a puzzle is <const>?</const>.
+          Maximum number of distinct colours in a puzzle is <const>?</const>.<br>
+          Checkpoints are located on empty (<const>.</const>) tiles only.<br>
+          A puzzle will always contain at least one special tile (<const>H</const>, <const>V</const> or <const>X</const>).
         </div>
     </div>
   </div>

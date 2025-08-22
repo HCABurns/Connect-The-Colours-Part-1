@@ -28,15 +28,16 @@ public class Constants {
     static {
         Map<Character, String> map = new HashMap<>();
         map.put('.', "tileError.png");
-        map.put('1', "tile1Error.png");
-        map.put('2', "tile2Error.png");
-        map.put('3', "tile3Error.png");
-        map.put('4', "tile4Error.png");
-        map.put('5', "tile5Error.png");
-        map.put('6', "tile6Error.png");
-        map.put('7', "tile7Error.png");
-        map.put('8', "tile8Error.png");
-        map.put('9', "tile9Error.png");
+        for (int i = 0; i < 10; i++){
+            char c = String.valueOf(i).charAt(0);
+            map.put(c,"tile"+c+"Error.png");
+        }
+        map.put('a',"tilea"+"Error.png");
+        map.put('b',"tileb"+"Error.png");
+        map.put('c',"tilec"+"Error.png");
+        map.put('d',"tiled"+"Error.png");
+        map.put('e',"tilee"+"Error.png");
+
         map.put('X', "tileError.png");
         map.put('V', "tileVerticalError.png");
         map.put('H', "tileHorizontalError.png");
@@ -47,11 +48,16 @@ public class Constants {
     public static final Map<Character, String> CHECKPOINT_TILE_MAPPER;
     static {
         Map<Character, String> map = new HashMap<>();
-        for (int i = 1; i < 10; i++){
+        for (int i = 0; i < 10; i++){
             char c = String.valueOf(i).charAt(0);
             map.put(c, "tile"+c+"Checkpoint.png");
         }
-        //map.put('1', "tile1Checkpoint.png");
+        // Letters
+        map.put('a',"tilea"+"Checkpoint.png");
+        map.put('b',"tileb"+"Checkpoint.png");
+        map.put('c',"tilec"+"Checkpoint.png");
+        map.put('d',"tiled"+"Checkpoint.png");
+        map.put('e',"tilee"+"Checkpoint.png");
         CHECKPOINT_TILE_MAPPER = Collections.unmodifiableMap(map);
     }
 
@@ -59,10 +65,16 @@ public class Constants {
     public static final Map<Character, String> ERROR_CHECKPOINT_TILE_MAPPER;
     static {
         Map<Character, String> map = new HashMap<>();
-        for (int i = 1; i < 10; i++){
+        for (int i = 0; i < 10; i++){
             char c = String.valueOf(i).charAt(0);
             map.put(c, "tile"+c+"CheckpointError.png");
         }
+        // Letters
+        map.put('a',"tilea"+"CheckpointError.png");
+        map.put('b',"tileb"+"CheckpointError.png");
+        map.put('c',"tilec"+"CheckpointError.png");
+        map.put('d',"tiled"+"CheckpointError.png");
+        map.put('e',"tilee"+"CheckpointError.png");
         ERROR_CHECKPOINT_TILE_MAPPER = Collections.unmodifiableMap(map);
     }
 
@@ -72,15 +84,17 @@ public class Constants {
     static {
         Map<Character, String> map = new HashMap<>();
         map.put('.', "tileComplete.png");
-        map.put('1', "tile1Complete.png");
-        map.put('2', "tile2Complete.png");
-        map.put('3', "tile3Complete.png");
-        map.put('4', "tile4Complete.png");
-        map.put('5', "tile5Complete.png");
-        map.put('6', "tile6Complete.png");
-        map.put('7', "tile7Complete.png");
-        map.put('8', "tile8Complete.png");
-        map.put('9', "tile9Complete.png");
+        for (int i = 0; i < 10; i++){
+            char c = String.valueOf(i).charAt(0);
+            map.put(c, "tile"+c+"Complete.png");
+        }
+        // letters
+        map.put('a',"tilea"+"Complete.png");
+        map.put('b',"tileb"+"Complete.png");
+        map.put('c',"tilec"+"Complete.png");
+        map.put('d',"tiled"+"Complete.png");
+        map.put('e',"tilee"+"Complete.png");
+
         map.put('X', "blocker.png");
         map.put('V', "tileComplete.png");
         map.put('H', "tileComplete.png");
@@ -91,15 +105,16 @@ public class Constants {
     public static final Map<Character, String> START_TILE_MAPPER;
     static {
         Map<Character, String> map = new HashMap<>();
-        map.put('1', "start1.png");
-        map.put('2', "start2.png");
-        map.put('3', "start3.png");
-        map.put('4', "start4.png");
-        map.put('5', "start5.png");
-        map.put('6', "start6.png");
-        map.put('7', "start7.png");
-        map.put('8', "start8.png");
-        map.put('9', "start9.png");
+        for (int i = 0; i < 10; i++){
+            char c = String.valueOf(i).charAt(0);
+            map.put(c, "start"+c+".png");
+        }
+        // Letters
+        map.put('a',"starta.png");
+        map.put('b',"startb.png");
+        map.put('c',"startc.png");
+        map.put('d',"startd.png");
+        map.put('e',"starte.png");
         map.put('X', "blocker.png");
         map.put('V', "tileVertical.png");
         map.put('H', "tileHorizontal.png");
@@ -110,15 +125,16 @@ public class Constants {
     public static final Map<Character, String> HORIZONTAL_CONNECTOR_MAPPER;
     static {
         Map<Character, String> map = new HashMap<>();
-        map.put('1', "connect_horizontal1.png");
-        map.put('2', "connect_horizontal2.png");
-        map.put('3', "connect_horizontal3.png");
-        map.put('4', "connect_horizontal4.png");
-        map.put('5', "connect_horizontal5.png");
-        map.put('6', "connect_horizontal6.png");
-        map.put('7', "connect_horizontal7.png");
-        map.put('8', "connect_horizontal8.png");
-        map.put('9', "connect_horizontal9.png");
+        for (int i = 0; i < 10; i++){
+            char c = String.valueOf(i).charAt(0);
+            map.put(c, "connect_horizontal"+c+".png");
+        }
+        // Letters
+        map.put('a',"connect_horizontala.png");
+        map.put('b',"connect_horizontalb.png");
+        map.put('c',"connect_horizontalc.png");
+        map.put('d',"connect_horizontald.png");
+        map.put('e',"connect_horizontale.png");
         HORIZONTAL_CONNECTOR_MAPPER = Collections.unmodifiableMap(map);
     }
 
@@ -126,15 +142,17 @@ public class Constants {
     public static final Map<Character, String> VERTICAL_CONNECTOR_MAPPER;
     static {
         Map<Character, String> map = new HashMap<>();
-        map.put('1', "connect_vertical1.png");
-        map.put('2', "connect_vertical2.png");
-        map.put('3', "connect_vertical3.png");
-        map.put('4', "connect_vertical4.png");
-        map.put('5', "connect_vertical5.png");
-        map.put('6', "connect_vertical6.png");
-        map.put('7', "connect_vertical7.png");
-        map.put('8', "connect_vertical8.png");
-        map.put('9', "connect_vertical9.png");
+        for (int i = 0; i < 10; i++){
+            char c = String.valueOf(i).charAt(0);
+            map.put(c, "connect_vertical"+c+".png");
+        }
+        // Letters
+        map.put('a',"connect_verticala.png");
+        map.put('b',"connect_verticalb.png");
+        map.put('c',"connect_verticalc.png");
+        map.put('d',"connect_verticald.png");
+        map.put('e',"connect_verticale.png");
+
         VERTICAL_CONNECTOR_MAPPER = Collections.unmodifiableMap(map);
     }
 }

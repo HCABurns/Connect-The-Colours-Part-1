@@ -1,0 +1,8 @@
+{
+	"title": {
+		"2": "Small 2 Validator"
+	},
+	"testIn": "5 5\n..7..\nVcV9.\nc..9.\n7.0.0\na...a\n1\n1 2 7",
+	"isTest": "false",
+	"isValidator": "true"
+}

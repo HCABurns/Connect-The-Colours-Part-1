@@ -15,7 +15,7 @@ public class Board {
     private final ArrayList<char[]> startGrid = new ArrayList<>();
     private final Set<Coordinate> startColours = new HashSet<>();
     private final Set<Coordinate> allStartColours = new HashSet<>();
-    private final Set<Integer> colourIdentifiers = new HashSet<>();
+    private final Set<Character> colourIdentifiers = new HashSet<>();
     private final Map<Coordinate, Set<Coordinate>> connections = new HashMap<>();
     private final Map<Character,Set<Coordinate>> paths = new HashMap<>();
     private final Map<Coordinate,Character> checkpoints = new HashMap<>();
@@ -99,9 +99,9 @@ public class Board {
                 grid.get(idx)[j] = '.';
                 if (character != '.') {
                     Coordinate coord = new Coordinate(idx, j, row[j]);
-                    if (!colourIdentifiers.contains(Integer.parseInt(String.valueOf(row[j])))) {
+                    if (!colourIdentifiers.contains(row[j])) {
                         startColours.add(coord);
-                        colourIdentifiers.add(Integer.parseInt(String.valueOf(row[j])));
+                        colourIdentifiers.add(row[j]);
                     }
                     allStartColours.add(coord);
                 }
@@ -155,13 +155,13 @@ public class Board {
      * @param x1 - X-Coordinate of tile 1.
      * @param y2 - Y-Coordinate of tile 2.
      * @param x2 - X-Coordinate of tile2.
-     * @param colourIdentifierNumber - Colour identifier as a number.
+     //* @param colourIdentifierNumber - Colour identifier as a number.
      * @return Boolean - True if valid connection between tiles otherwise False.
      */
-    public boolean isValid(int y1, int x1, int y2, int x2, int colourIdentifierNumber){
+    public boolean isValid(int y1, int x1, int y2, int x2, char colourIdentifier){
         ArrayList<Coordinate> coords = new ArrayList<>();
         try{
-            char colourIdentifier = (char) (48+colourIdentifierNumber);
+            //char colourIdentifier = (char) (48+colourIdentifierNumber);
             if (!paths.containsKey(colourIdentifier)){
                 paths.put(colourIdentifier, new HashSet<>());
             }
@@ -302,7 +302,7 @@ public class Board {
         return startGrid;
     }
 
-    public Set<Integer> getColourIdentifiers(){
+    public Set<Character> getColourIdentifiers(){
         return colourIdentifiers;
     }
 

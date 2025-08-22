@@ -1,0 +1,8 @@
+{
+	"title": {
+		"2": "Medium 2 Validator"
+	},
+	"testIn": "10 10\n1XXa......\n..H..1..2a\ncb...2.X3.\n...c......\n99XX..b...\n..e..XX5.3\n..e..7..58\n4Xd...d...\n.6..67....\n...H.4XX8.\n0",
+	"isTest": "false",
+	"isValidator": "true"
+}
