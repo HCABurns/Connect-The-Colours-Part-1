@@ -15,7 +15,7 @@ public class SkeletonMain {
         //gameRunner.setTestCase("test11.json"); // medium 1
         //gameRunner.setTestCase("test332.json"); // sparse 1
         //gameRunner.setTestCase("test329.json"); // single
-        gameRunner.setTestCase("test205.json"); // single
+        gameRunner.setTestCase("test206.json"); // single
 
         // Starts the game.
         gameRunner.start();

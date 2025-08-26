@@ -2,7 +2,7 @@
 	"title": {
 		"2": "Medium 1 Validator"
 	},
-	"testIn": "10 10\nc..H..c1..\n28..09....\n...V5.V...\n.80.....7V\n.2....9.1.\ne.H.e54...\nd..4......\nV.H...V.a7\n.d.H...a3.\n..H..3H...\n4\n4 5 e\n1 2 8\n7 4 1\n3 4 0",
+	"testIn": "10 10\nc..H..c1..\n28..09....\n...V5.V...\n.80.....7V\n.2....9.1.\ne.H.e54...\nd..4......\nV.H...V.a7\n.d.H...a3.\n..H..3H...\n4\n3 5 e\n1 2 8\n7 4 1\n3 4 0",
 	"isTest": "false",
 	"isValidator": "true"
 }
