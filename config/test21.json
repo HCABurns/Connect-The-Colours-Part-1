@@ -1,0 +1,8 @@
+{
+	"title": {
+		"2": "Simple Vertical"
+	},
+	"testIn": "7 1\nc\n.\n.\nV\n.\nc\nX\n1\n0 2 c",
+	"isTest": "false",
+	"isValidator": "true"
+}

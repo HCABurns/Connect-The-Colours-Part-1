@@ -1,0 +1,8 @@
+{
+	"title": {
+		"2": "Simple Horizontal"
+	},
+	"testIn": "1 7\nX4.H..4\n1\n2 0 4",
+	"isTest": "true",
+	"isValidator": "false"
+}

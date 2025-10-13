@@ -193,7 +193,6 @@ public class Board {
                 if (!connections.containsKey(coord2)){connections.put(coord2, new HashSet<>());}
 
                 // Check if connecting to a checkpoint with incorrect colour
-                System.out.println(checkpoints.containsKey(coord1) + " : " + coord1.getNumber() + colourIdentifier);
                 if (checkpoints.containsKey(coord1) && checkpoints.get(coord1) != colourIdentifier || checkpoints.containsKey(coord2) && checkpoints.get(coord2) != colourIdentifier){
                     throw new Exception("Incorrect colour connected to a checkpoint.");
                 }

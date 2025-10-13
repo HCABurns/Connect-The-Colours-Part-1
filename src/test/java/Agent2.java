@@ -6,6 +6,11 @@ public class Agent2 {
         // Incorrect vertical for 1
         //System.out.println("1 2 0 2 2");
 
+
+        System.out.println("1 0 2 8 e");
+
+
+
         // Valid for 1
         System.out.println("0 0 0 3 0");
 

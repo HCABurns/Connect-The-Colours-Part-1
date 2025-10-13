@@ -4,5 +4,5 @@
 	},
 	"testIn": "4 4\n0..e\nV...\n..H.\n0XXe\n2\n0 2 0\n2 0 e",
 	"isTest": "true",
-	"isValidator": "true"
+	"isValidator": "false"
 }

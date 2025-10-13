@@ -70,7 +70,7 @@ public class Renderer implements Module {
      */
     public void addErrorTile(int id, String texture) {
         for (Map<String, Serializable> map : allTiles){
-            if (map.get("id") == (Serializable) id){
+            if (map.get("id").equals(id)){
                 map.replace("texture", texture);
             }
         }
@@ -83,9 +83,8 @@ public class Renderer implements Module {
      */
     public void setErrorTiles(Board board){
         for (Coordinate coord : board.getErrorTiles()){
-            if (coord.getY() * board.getWidth() + coord.getX() < board.getWidth() * board.getHeight()) {
+            if (((coord.getY() * board.getWidth()) + coord.getX()) < (board.getWidth() * board.getHeight())) {
                 if (checkpoints.containsKey(coord)){
-                    System.out.println("YER");
                     addErrorTile(tiles.get(coord.getY() * board.getWidth() + coord.getX()), Constants.ERROR_CHECKPOINT_TILE_MAPPER.get(checkpoints.get(coord)));
                     addErrorTile(debug_tiles.get(coord.getY() * board.getWidth() + coord.getX()).getId(), Constants.ERROR_CHECKPOINT_TILE_MAPPER.get(checkpoints.get(coord)));
                 }
@@ -349,6 +348,8 @@ public class Renderer implements Module {
 
     @Override
     public void onAfterOnEnd() {
-
+        Map<String, Serializable> data = new HashMap<>();
+        data.put("tiles", (Serializable) allTiles);
+        gameManager.setViewData("Renderer", data);
     }
 }

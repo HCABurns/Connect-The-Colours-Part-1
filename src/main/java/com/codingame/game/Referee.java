@@ -51,7 +51,6 @@ public class Referee extends AbstractReferee {
 
         // Set the checkpoints.
         int checkpoint_counter = Integer.parseInt(gameManager.getTestCaseInput().get(board.getHeight()+1));
-        System.out.println(checkpoint_counter);
         for (int i = 2; i < checkpoint_counter+2; i++){
             String[] checkpoint_pos = Arrays.stream(gameManager.getTestCaseInput().get(board.getHeight()+i).split(" "))
                     .map(String::valueOf)
@@ -172,7 +171,6 @@ public class Referee extends AbstractReferee {
                 number = 97 + (int)(number_as_char) - (int)('a');
             }
 
-            System.out.println("Char is: " + number + " Char is also: " + number_as_char);
             // Set y1,x1 to be the left-most coordinate.
             if ((y1+x1) < (y2+x2)) {
                 values[0] = y1;values[1] = x1;values[2] = y2;values[3] = x2;
