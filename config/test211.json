@@ -2,7 +2,7 @@
 	"title": {
 		"2": "Segmented Grid 1"
 	},
-	"testIn": "",
+	"testIn": "9 9\nac6.X0...\n....Xb..0\n.Xc6X...1\n...aXb991\nXXXXXXXXX\ne2..X....\n.He.X.33.\n....X.44.\n55.2X..XX\n3\n2 7 5\n8 6 4\n6 5 4",
 	"isTest": "false",
 	"isValidator": "true"
 }
