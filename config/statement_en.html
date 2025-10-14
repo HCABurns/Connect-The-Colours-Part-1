@@ -126,16 +126,18 @@
       <div class="statement-inout-in" style = "max-width:25%">
         <div class="title" style="padding: 0; ">Initialization input</div>
           <tt>
-            ? ? <em>(h,w)</em> <br>
-            ... <em>(row)</em> <br>
-            ... <em>(row)</em> <br>
-            ... <em>(row)</em> <br>
-            ? <em>   (k) </em> <br>
-            ? ? ? <em> (x,y,c) </em>
+            4 4 <em>&nbsp(h,w)</em> <br>
+            0..e <em>(row)</em> <br>
+            V... <em>(row)</em> <br>
+            ..H. <em>(row)</em> <br>
+            0XXe <em>(row)</em> <br>
+            2 <em>   (k) </em> <br>
+            0 2 0 <em> (x,y,c) </em>
+            2 0 e <em> (x,y,c) </em>
           </tt>
       </div>
       
-    <div class="statement-inout-in" style="text-align: center; max-width:75%">Grid with ? rows and ? columns. Integers in the <em>rows</em> represent the two tiles of a specific colour that must be connected with a single continuous path....<br><br><img height = "150" src="" alt = "example image 1"></div>
+    <div class="statement-inout-in" style="text-align: center; max-width:75%">Grid with 4 rows and 4 columns. Integers or lowercase characters in the <em>rows</em> represent the two tiles of a specific colour that must be connected with a single continuous path. There are 2 checkpoints with .... **Need to change after visuals update**<br><br><img height = "200" src="https://i.ibb.co/5XXw6ts3/x1.png" alt = "example image 1"></div>
     
   </div>
 
@@ -172,18 +174,18 @@
     <!-- Protocol block -->
     <div class="blk">
       <div class="title">Constraints</div>
-        <div class="text"> 1 ≤ <var>h</var>, <var>w</var> ≤ ?<br>
-          0 ≤ <var>k</var> ≤ ?<br>
+        <div class="text"> 1 ≤ <var>h</var>, <var>w</var> ≤ 15<br>
+          0 ≤ <var>k</var> ≤ 15<br>
           0 ≤ <var>x</var> < <var>w</var> <br>
           0 ≤ <var>y</var> < <var>h</var> <br>
           <var>c</var> is a digit (<const>0</const>-<const>9</const>) or one of <const>a</const>-<const>e</const>. <br>
           A colour identifier will appear exactly twice within a puzzle.<br>
-          Maximum number of distinct colours in a puzzle is <const>?</const>.<br>
+          Maximum number of distinct colours in a puzzle is <const>15</const>.<br>
           A puzzle will always contain at least one special tile (<const>H</const>, <const>V</const> or <const>X</const>).<br>
           Checkpoints are located on empty (<const>.</const>) tiles only.<br>
-          Allotted response time for first output is <const>?</const> seconds.<br>
+          Allotted response time for first output is <const>2</const> seconds.<br>
           Allotted response time for subsequent outputs is <const>50</const> ms.<br>
-          Turn limit is <const>?</const> turns.<br>
+          Turn limit is <const>100</const> turns.<br>
         </div>
     </div>
   </div>

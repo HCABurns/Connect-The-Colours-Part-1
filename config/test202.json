@@ -1,0 +1,8 @@
+{
+	"title": {
+		"2": "CG"
+	},
+	"testIn": "8 13\nXXXXXXXXXXXXX\nXX...7X....XX\nXX.XXXX.XX3XX\nXX.XXXX.XXXXX\nXX.XXXX.X3.XX\nXX.XXXX.XX.XX\nXX...7X....XX\nXXXXXXXXXXXXX\n0",
+	"isTest": "true",
+	"isValidator": "true"
+}

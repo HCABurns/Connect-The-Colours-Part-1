@@ -1,0 +1,8 @@
+{
+	"title": {
+		"2": "Segmented 2"
+	},
+	"testIn": "8 13\n.a.H.aX.2.H.2\n.H.X1.X.H.d8.\n.04..VXd...X.\n...04.Xe...e8\n..7..1X...56.\n.7b...X.56.H.\n9b.HH.X..c3..\n.....9X.c3...\n1\n12 5 6",
+	"isTest": "false",
+	"isValidator": "true"
+}
