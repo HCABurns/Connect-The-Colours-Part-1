@@ -5,7 +5,8 @@ public class Agent2 {
 
         // Incorrect vertical for 1
         //System.out.println("1 2 0 2 2");
-
+        System.out.println("0 0 5 0 b");
+        System.out.println("5 0 5 5 b");
 
         System.out.println("1 0 2 8 e");
 
