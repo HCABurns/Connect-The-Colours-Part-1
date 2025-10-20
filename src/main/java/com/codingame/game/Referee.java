@@ -153,9 +153,8 @@ public class Referee extends AbstractReferee {
     public int[] checkOutputs(List<String> outputs){
 
         if (outputs.size() != 1){gameManager.loseGame("You did not send a single input.");}
-        String[] arr = outputs.get(0).split(" ",-1);
+        String[] arr = outputs.get(0).split(" ", -1);
         int[] values = new int[5];
-        System.out.println(arr.length);
 
         try{
             if (arr.length != 5){throw new Exception("Incorrect number of inputs provided.");}
@@ -193,6 +192,7 @@ public class Referee extends AbstractReferee {
             return null;
         }
         catch (NumberFormatException e){
+            String[] error = e.getMessage().split(" ");
             errorMessage = "One or more of the inputs were invalid.";
             return null;
         }
