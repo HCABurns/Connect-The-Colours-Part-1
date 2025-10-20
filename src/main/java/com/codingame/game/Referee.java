@@ -218,7 +218,7 @@ public class Referee extends AbstractReferee {
         // NOTE: These checks are general checks for correctness - Additional checks in Board.isValid().
         // Check for valid number.
         if (!board.getColourIdentifiers().contains(number)){
-            throw new Exception("Invalid colour identifier provided.");
+            throw new Exception("Invalid colour identifier was provided.");
         }
 
         // Check for bounds of provided coordinates.
