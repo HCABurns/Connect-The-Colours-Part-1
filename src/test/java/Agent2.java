@@ -2,6 +2,18 @@ public class Agent2 {
 
     public static void main(String[] args) {
 
+        System.out.println("0 0 0 3 0");
+
+        System.out.println("3 0 3 1 e");
+        System.out.println("3 1 2 1 e");
+        System.out.println("2 0 2 1 e");
+        System.out.println("2 0 1 0 e");
+        System.out.println("1 2 1 0 e");
+
+        System.out.println("1 2 2 2 e");
+
+        System.out.println("2 2 3 2 e");
+        System.out.println("3 2 3 3 e");
 
         // Incorrect vertical for 1
         //System.out.println("1 2 0 2 2");

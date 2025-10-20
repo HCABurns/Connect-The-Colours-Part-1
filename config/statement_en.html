@@ -132,12 +132,12 @@
             ..H. <em>(row)</em> <br>
             0XXe <em>(row)</em> <br>
             2 <em>   (k) </em> <br>
-            0 2 0 <em> (x,y,c) </em>
+            0 2 0 <em> (x,y,c) </em><br>
             2 0 e <em> (x,y,c) </em>
           </tt>
       </div>
       
-    <div class="statement-inout-in" style="text-align: center; max-width:75%">Grid with 4 rows and 4 columns. Integers or lowercase characters in the <em>rows</em> represent the two tiles of a specific colour that must be connected with a single continuous path. There are 2 checkpoints with .... **Need to change after visuals update**<br><br><img height = "200" src="https://i.ibb.co/5XXw6ts3/x1.png" alt = "example image 1"></div>
+    <div class="statement-inout-in" style="text-align: center; max-width:75%">Grid with 4 rows and 4 columns. Matching integers or lowercase characters in the <em>rows</em> represent the two tiles of a specific colour that must be connected with a single continuous path. There are 2 <em>checkpoint tiles</em> which can only be used in the path of their specified colour. Additionally, there are two <em>directional tiles</em> which indicate they can only be used in paths in their given direction. Finally, there are two <em>blocker tiles</em> which can't be used in any path.<br><br><img height = "200" src="https://i.ibb.co/8nDR68xj/x1.png" alt = "example image 1"></div>
     
   </div>
 
@@ -145,30 +145,34 @@
   <div class="statement-inout">
     <div class="statement-inout-out" style = "max-width:25%">
       <div class="title" style="padding: 0;">Output for turn 1</div>
-          <tt>...</tt>
+          <tt>0 0 0 3 0</tt>
     </div>
-    <div class="statement-inout-out" style="text-align: center; max-width:75%">Create a path from coordinates (<const>?</const>,<const>?</const>) to the coordinates (<const>?</const>,<const>?</const>) using the colour represented by the colour identifier <const>?</const>.<br><br><img height = "150" src="" alt = "example image 2"></div>
+    <div class="statement-inout-out" style="text-align: center; max-width:75%">Create a path from coordinates (<const>0</const>,<const>0</const>) to the coordinates (<const>0</const>,<const>3</const>) using the colour represented by the colour identifier <const>0</const>. The path goes veritcally through the vertical directional tile and connects through the checkpoint tile associated with the colour <const>0</const>.<br><br><img height = "200" src="https://i.ibb.co/kVSvsBrK/e2.png" alt = "example image 2"></div>
   </div>
 
   <!-- Output turn 2 Example -->
   <div class="statement-inout" >
     <div class="statement-inout-out" style = "max-width:25%">
       <div class="title" style="padding: 0;">Output for turn 2</div>
-          <tt>...</tt>
+          <tt>1 2 2 2 e</tt>
     </div>
-    <div class="statement-inout-in" style="text-align: center; max-width:75%">Create a path from coordinates (<const>?</const>,<const>?</const>) to the coordinates (<const>?</const>,<const>?</const>) using the colour represented by the colour identifier <const>?</const>.<br><br><img height = "150" src="" alt = "example image 3"></div>
+    <div class="statement-inout-in" style="text-align: center; max-width:75%">Create a path from coordinates (<const>1</const>,<const>2</const>) to the coordinates (<const>2</const>,<const>2</const>) using the colour represented by the colour identifier <const>e</const>. This path correctly aligns with the orientation of the horizontal directional tile.<br><br><img height = "200" src="https://i.ibb.co/F2Pn545/e3.png" alt = "example image 3"></div>
   </div>
     
     <!-- Output remaining turns Example -->
   <div class="statement-inout" >
     <div class="statement-inout-out" style = "max-width:25%">
       <div class="title" style="padding: 0;">Outputs for remaining turns</div>
-        <tt>...<br>
-        ...<br>
-        ...<br>
-        ...<br></tt>
+        <tt>3 0 3 1 e<br>
+        3 1 2 1 e<br>
+        2 0 2 1 e<br>
+        2 0 1 0 e<br>
+        1 2 1 0 e<br>
+        2 2 3 2 e<br>
+        3 2 3 3 e<br>
+        </tt>
     </div>
-    <div class="statement-inout-in" style="text-align: center; max-width:75%">Create paths for the remaining paired tiles, ensuring that each colour is connected by a single continuous path and that every tile is used.<br><br><img height = "150" src="" alt = "example image 4"></div>
+    <div class="statement-inout-in" style="text-align: center; max-width:75%">Create paths for the remaining paired tiles, ensuring that each colour is connected by a single continuous path and that every available tile is used.<br><br><img height = "200" src="https://i.ibb.co/QFgT4RqV/x5.png" alt = "example image 4"></div>
   </div>
   
     <!-- Protocol block -->
