@@ -4,7 +4,7 @@ public class Agent2 {
 
         System.out.println("0 0 0 3 0");
 
-        System.out.println("3 0 3 1 e");
+        System.out.println("3 0 3 1 e ");
         System.out.println("3 1 2 1 e");
         System.out.println("2 0 2 1 e");
         System.out.println("2 0 1 0 e");

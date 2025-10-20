@@ -2,7 +2,7 @@
 	"title": {
 		"2": "Medium 3"
 	},
-	"testIn": "9 8\n....HcaX\n.X5..X..\ncX...5a.\n8.9....X\n..XX....\n8...eX9.\n..X6..H.\ne..16...\n1.X4...4\n3\n7 7 6\n4 3 9\n4 0 c",
+	"testIn": "9 8\n....HcaX\n.X5..X..\ncX...5a.\n8.9....X\n..XX....\n8...eX9.\n..X6..H.\ne..16...\n1.X4...4\n3\n7 7 6\n4 3 9\n3 0 c",
 	"isTest": "true",
 	"isValidator": "false"
 }
