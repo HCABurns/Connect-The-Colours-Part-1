@@ -38,7 +38,7 @@ public class Constants {
         map.put('d',"tiled"+"Error.png");
         map.put('e',"tilee"+"Error.png");
 
-        map.put('X', "tileError.png");
+        map.put('X', "blockerError.png");
         map.put('V', "tileVerticalError.png");
         map.put('H', "tileHorizontalError.png");
         ERROR_TILE_MAPPER = Collections.unmodifiableMap(map);
